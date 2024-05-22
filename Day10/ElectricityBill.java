@@ -1,4 +1,4 @@
-package RailworldTraining.Day09;
+package RailworldTraining.Day10;
 
 import java.util.Scanner;
 

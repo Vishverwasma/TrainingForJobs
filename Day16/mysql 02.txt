@@ -1,0 +1,60 @@
+MYSQL 02
+
+mysql> create table STUDENT(ROLLNUMBER INT PRIMARY KEY , FIRST_NAME VARCHAR(
+50),LAST_NAME VARCHAR(50),COURSE_ID INT,SCHOOL_ID INT);
+
+mysql> CREATE TABLE SCHOOL(SCHOOLID INT PRIMARY KEY,SCHOOL_NAME VARCHAR(50),CITY VARCHAR(25),STATE VARCHAR(25));
+
+mysql> CREATE TABLE COURSE(COURSEID INT PRIMARY KEY,COURSE_NAME VARCHAR(50),DURATION VARCHAR(25));
+
+mysql> ALTER TABLE  STUDENT ADD FOREIGN KEY(COURSE_ID) REFERENCES COURSE(COURSEID);
+
+mysql> ALTER TABLE  STUDENT ADD FOREIGN KEY(SCHOOL_ID) REFERENCES SCHOOL(SCH
+OOLID);
+
+INSERT INTO SCHOOL(SCHOOLID,SCHOOL_NAME,CITY,STATE)VALUES
+    -> (100,'DAV PUBLIC SCHOOL','HUDCO BHILAI','CHHATTISGARH'),
+    -> (101,'SSAV','HUDCO BHILAI','CHHATTISGARH'),
+    -> (103,'KENDRI VIDYALAYA','DURG','CHHATTISGARH'),
+    -> (104,'DPS RISALI','SECTOR 10 BHILAI','CHHATTISGARH'),
+    -> (105,'SHANKARA VIDYALAYA','SECTOR 7  BHILAI','CHHATTISGARH');
+
+mysql> INSERT INTO COURSE(COURSEID,COURSE_NAME,DURATION) VALUES
+    -> (1,'MATHEMATICS','2 YEARS'),
+    -> (2,'COMMERCE','2 YEARS'),
+    -> (3,'BIOLOGY','2 YEARS'),
+    -> (4,'ARTS','2 YEARS'),
+    -> (5,'OTHER','DEPENDS');
+
+mysql> INSERT INTO STUDENT(ROLLNUMBER,FIRST_NAME,LAST_NAME,COURSE_ID,SCHOOL_ID) VALUES
+    -> (1,'VISHWAS','VERMA',1,101),
+    -> (2,'RAVINDRA','DANGE',3,101),
+    -> (3,'AKASH','SHRIVASTAVA',2,100),
+    -> (4,'VAIBHAV','SAHU',2,101),
+    -> (5,'GUNNJAN','TARAM',4,104),
+    -> (6,'PRIYANSHU','VERMA',1,105);
+
+mysql> SELECT * FROM STUDENT ;
++------------+------------+-------------+-----------+-----------+
+| ROLLNUMBER | FIRST_NAME | LAST_NAME   | COURSE_ID | SCHOOL_ID |
++------------+------------+-------------+-----------+-----------+
+|          1 | VISHWAS    | VERMA       |         1 |       101 |
+|          2 | RAVINDRA   | DANGE       |         3 |       101 |
+|          3 | AKASH      | SHRIVASTAVA |         2 |       100 |
+|          4 | VAIBHAV    | SAHU        |         2 |       101 |
+|          5 | GUNNJAN    | TARAM       |         4 |       104 |
+|          6 | PRIYANSHU  | VERMA       |         1 |       105 |
++------------+------------+-------------+-----------+-----------+
+
+mysql> SELECT S.ROLLNUMBER,S.FIRST_NAME,S.LAST_NAME,C.COURSE_NAME,C.DURATION
+,SC.SCHOOL_NAME,SC.CITY,SC.STATE FROM STUDENT S ,COURSE C,SCHOOL SC WHERE S.COURSE_ID=C.COURSEID AND S.SCHOOL_ID=SC.SCHOOLID;
++------------+------------+-------------+-------------+----------+--------------------+------------------+--------------+
+| ROLLNUMBER | FIRST_NAME | LAST_NAME   | COURSE_NAME | DURATION | SCHOOL_NAME        | CITY             | STATE        |
++------------+------------+-------------+-------------+----------+--------------------+------------------+--------------+
+|          1 | VISHWAS    | VERMA       | MATHEMATICS | 2 YEARS  | SSAV               | HUDCO BHILAI     | CHHATTISGARH |
+|          6 | PRIYANSHU  | VERMA       | MATHEMATICS | 2 YEARS  | SHANKARA VIDYALAYA | SECTOR 7  BHILAI | CHHATTISGARH |
+|          3 | AKASH      | SHRIVASTAVA | COMMERCE    | 2 YEARS  | DAV PUBLIC SCHOOL  | HUDCO BHILAI     | CHHATTISGARH |
+|          4 | VAIBHAV    | SAHU        | COMMERCE    | 2 YEARS  | SSAV               | HUDCO BHILAI     | CHHATTISGARH |
+|          2 | RAVINDRA   | DANGE       | BIOLOGY     | 2 YEARS  | SSAV               | HUDCO BHILAI     | CHHATTISGARH |
+|          5 | GUNNJAN    | TARAM       | ARTS        | 2 YEARS  | DPS RISALI         | SECTOR 10 BHILAI | CHHATTISGARH |
++------------+------------+-------------+-------------+----------+--------------------+------------------+--------------+
