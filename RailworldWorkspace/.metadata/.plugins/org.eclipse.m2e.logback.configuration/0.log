@@ -1,0 +1,46 @@
+2024-05-23 15:15:06,438 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-05-23 15:15:40,805 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-05-23 15:23:52,300 [Worker-18: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: JDBCDemo:JDBCDemo:0.0.1-SNAPSHOT @ D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\pom.xml.
+2024-05-23 15:23:53,174 [Worker-18: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /JDBCDemo/src
+2024-05-23 15:23:53,177 [Worker-18: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /JDBCDemo/src/test/java because it overlaps with /JDBCDemo/src
+2024-05-23 15:23:53,700 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:23:53,709 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\main\resources
+2024-05-23 15:23:53,713 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:23:53,720 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\test\resources
+2024-05-23 15:23:53,757 [Worker-18: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-05-23 15:23:54,108 [Worker-18: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: JDBCDemo:JDBCDemo:0.0.1-SNAPSHOT @ D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\pom.xml.
+2024-05-23 15:23:54,792 [Worker-18: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /JDBCDemo/src
+2024-05-23 15:23:54,794 [Worker-18: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /JDBCDemo/src/test/java because it overlaps with /JDBCDemo/src
+2024-05-23 15:23:55,067 [Worker-18: Enabling Maven Dependency Management] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for JDBCDemo
+2024-05-23 15:23:55,097 [Worker-18: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 1 sec
+2024-05-23 15:23:55,306 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:23:55,308 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\main\resources
+2024-05-23 15:23:55,309 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:23:55,311 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\test\resources
+2024-05-23 15:23:55,311 [Worker-37: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of JDBCDemo
+2024-05-23 15:23:55,315 [Worker-37: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for JDBCDemo
+2024-05-23 15:23:55,327 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:25:03,443 [Worker-3: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:25:03,444 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\main\resources
+2024-05-23 15:25:03,445 [Worker-3: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:25:03,450 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\test\resources
+2024-05-23 15:25:19,909 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:25:19,909 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\main\resources
+2024-05-23 15:25:19,911 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:25:19,915 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\test\resources
+2024-05-23 15:25:34,244 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:25:34,245 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\main\resources
+2024-05-23 15:25:34,246 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:25:34,249 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\test\resources
+2024-05-23 15:25:54,715 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:25:54,716 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\main\resources
+2024-05-23 15:25:54,717 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:25:54,719 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\test\resources
+2024-05-23 15:26:21,678 [Worker-11: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:26:21,679 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\main\resources
+2024-05-23 15:26:21,679 [Worker-11: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:26:21,685 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\test\resources
+2024-05-23 15:27:26,427 [Worker-40: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:27:26,427 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\main\resources
+2024-05-23 15:27:26,428 [Worker-40: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-23 15:27:26,429 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Batch 6\Java practise Code\RailworldTraining\RailworldWorkspace\JDBCDemo\src\test\resources
