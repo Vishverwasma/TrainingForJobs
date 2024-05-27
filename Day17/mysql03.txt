@@ -1,0 +1,237 @@
+mysql03
+mysql> create table Medicine(Medicine_id int primary key,
+    -> Medicine_Name varchar(50),
+    -> Medicine_category_id int,
+    -> medicine_Rating int);
+mysql> create table Medicine_Category(
+    -> category_Id int primary key,
+    -> Category_Name varchar(50)
+    -> );
+mysql> create table Medicine_Quantity(
+    -> quantity_id int primary key,
+    -> medicine_id int unique,
+    -> medicine_quantity int);
+mysql> ALTER TABLE Medicine_Quantity ADD FOREIGN KEY(medicine_id) REFERENCES MEDICINE(Medicine_id);
+mysql> ALTER TABLE MEDICINE ADD FOREIGN KEY(Medicine_category_id) REFERENCES
+ MEDICINE_CATEGORY(CATEGORY_ID);
+and Models are package com.project02.Models;
+
+
+//mysql> create table Medicine(Medicine_id int primary key,
+//	    -> Medicine_Name varchar(50),
+//	    -> Medicine_category_id int,
+//	    -> medicine_Rating int);
+//	Query OK, 0 rows affected (0.05 sec)
+	
+//mysql> ALTER TABLE MEDICINE ADD FOREIGN KEY(Medicine_category_id) REFERENCES
+//MEDICINE_CATEGORY(CATEGORY_ID);
+//Query OK, 0 rows affected (0.05 sec)
+//Records: 0  Duplicates: 0  Warnings: 0
+	
+public class Medicine {
+	private int Medicine_id;
+	private String Medicine_Name;
+	private int Medicine_category_id;
+	private int medicine_Rating;
+	
+	public Medicine() {
+		super();
+	}
+	public Medicine(int medicine_id, String medicine_Name, int medicine_category_id, int medicine_Rating) {
+		super();
+		Medicine_id = medicine_id;
+		Medicine_Name = medicine_Name;
+		Medicine_category_id = medicine_category_id;
+		this.medicine_Rating = medicine_Rating;
+	}
+	public int getMedicine_id() {
+		return Medicine_id;
+	}
+	public void setMedicine_id(int medicine_id) {
+		Medicine_id = medicine_id;
+	}
+	public String getMedicine_Name() {
+		return Medicine_Name;
+	}
+	public void setMedicine_Name(String medicine_Name) {
+		Medicine_Name = medicine_Name;
+	}
+	public int getMedicine_category_id() {
+		return Medicine_category_id;
+	}
+	public void setMedicine_category_id(int medicine_category_id) {
+		Medicine_category_id = medicine_category_id;
+	}
+	public int getMedicine_Rating() {
+		return medicine_Rating;
+	}
+	public void setMedicine_Rating(int medicine_Rating) {
+		this.medicine_Rating = medicine_Rating;
+	}
+	
+}
+package com.project02.Models;
+
+
+//mysql> create table Medicine_Category(
+//	    -> category_Id int primary key,
+//	    -> Category_Name varchar(50)
+//	    -> );
+//	Query OK, 0 rows affected (0.02 sec)
+
+public class Medicine_Category {
+	private int category_Id;
+	private String Category_Name;
+	public Medicine_Category() {
+		super();
+	}
+	public Medicine_Category(int category_Id, String category_Name) {
+		super();
+		this.category_Id = category_Id;
+		Category_Name = category_Name;
+	}
+	public int getCategory_Id() {
+		return category_Id;
+	}
+	public void setCategory_Id(int category_Id) {
+		this.category_Id = category_Id;
+	}
+	public String getCategory_Name() {
+		return Category_Name;
+	}
+	public void setCategory_Name(String category_Name) {
+		Category_Name = category_Name;
+	}
+	
+}
+package com.project02.Models;
+
+
+//mysql> create table Medicine_Quantity(
+//	    -> quantity_id int primary key,
+//	    -> medicine_id int ,
+//	    -> medicine_quantity int);
+//	Query OK, 0 rows affected (0.02 sec)
+	
+//mysql> ALTER TABLE Medicine_Quantity ADD FOREIGN KEY(medicine_id) REFERENCES
+//MEDICINE(Medicine_id);
+//Query OK, 0 rows affected (0.04 sec)
+//Records: 0  Duplicates: 0  Warnings: 0
+
+public class Medicine_Quantity {
+	private int quantity_id;
+	private int medicine_id;
+	private double medicine_quantity;
+	
+	public Medicine_Quantity() {
+		super();
+	}
+	public Medicine_Quantity(int quantity_id, int medicine_id, double medicine_quantity) {
+		super();
+		this.quantity_id = quantity_id;
+		this.medicine_id = medicine_id;
+		this.medicine_quantity = medicine_quantity;
+	}
+	public int getQuantity_id() {
+		return quantity_id;
+	}
+	public void setQuantity_id(int quantity_id) {
+		this.quantity_id = quantity_id;
+	}
+	public double getMedicine_quantity() {
+		return medicine_quantity;
+	}
+	public void setMedicine_quantity(double medicine_quantity) {
+		this.medicine_quantity = medicine_quantity;
+	}
+	public int getMedicine_id() {
+		return medicine_id;
+	}
+	public void setMedicine_id(int medicine_id) {
+		this.medicine_id = medicine_id;
+	}
+}
+Now give me DAO for Above three similar to package com.employee.Dao;
+
+import java.sql.*;
+import java.util.*;
+
+import com.employee.Models.Employee;
+import com.employee.Utility.DBUtil;
+
+public class EmployeeDao {
+	
+	public void addEmployee(Employee employee)throws SQLException {
+		String sql = "INSERT INTO EMPLOYEE_DB (ROLL , NAME , DEPARTMENT , SALARY) VALUES (? , ? , ? , ?)";
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(sql)){
+			stmt.setInt(1, employee.getRoll());			
+			stmt.setString(2, employee.getName());
+            stmt.setString(3, employee.getDepartment());
+            stmt.setDouble(4, employee.getSalary());
+            stmt.executeUpdate();
+		}
+	}
+	
+	public List<Employee> getAllEmployees() throws SQLException{
+		List<Employee> employees = new ArrayList<>();
+        String sql = "SELECT * FROM employee_db";
+
+        try (Connection conn = DBUtil.getConnection();
+        	Statement stmt = conn.createStatement();
+        	ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Employee employee = new Employee();
+                employee.setRoll(rs.getInt("roll"));
+                employee.setName(rs.getString("name"));
+                employee.setDepartment(rs.getString("department"));
+                employee.setSalary(rs.getDouble("salary"));
+                employees.add(employee);
+            }
+	      }
+        return employees;
+    }
+
+	public Employee getEmployeeByRoll(int roll)  throws SQLException{
+		Employee employee = null;
+        String sql = "SELECT * FROM employee_db where roll=?";
+
+        try (Connection conn = DBUtil.getConnection();
+        	PreparedStatement stmt = conn.prepareStatement(sql)) {
+        	stmt.setInt(1, roll);
+        	ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                employee = new Employee();
+                employee.setRoll(rs.getInt("roll"));
+                employee.setName(rs.getString("name"));
+                employee.setDepartment(rs.getString("department"));
+                employee.setSalary(rs.getDouble("salary"));
+            }
+	      }
+        return employee;
+	}
+	
+	public void updateEmployee(Employee employee) throws SQLException {
+        String sql = "UPDATE employee_db SET name = ?, department = ?, salary = ? WHERE roll = ?";
+
+        try (Connection conn = DBUtil.getConnection(); 
+        	PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, employee.getName());
+            stmt.setString(2, employee.getDepartment());
+            stmt.setDouble(3, employee.getSalary());
+            stmt.setInt(4, employee.getRoll());
+            stmt.executeUpdate();
+        }
+    }
+	
+	
+    public void deleteEmployee(int roll) throws SQLException {
+        String sql = "DELETE FROM employee_db WHERE roll = ?";
+
+        try (Connection conn = DBUtil.getConnection(); 
+        	PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, roll);
+            stmt.executeUpdate();
+        }
+    }
+}

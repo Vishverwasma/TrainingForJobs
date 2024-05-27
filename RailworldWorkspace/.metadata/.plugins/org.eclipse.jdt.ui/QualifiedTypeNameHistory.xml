@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="Utility.DBUtil"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="Service.EmployeeService"/>
+    <fullyQualifiedTypeName name="Models.Employee"/>
+    <fullyQualifiedTypeName name="com.employee.Utility.DBUtil"/>
+    <fullyQualifiedTypeName name="com.employee.Dao.EmployeeDao"/>
+    <fullyQualifiedTypeName name="com.employee.Service.EmployeeService"/>
+    <fullyQualifiedTypeName name="com.employee.Models.Employee"/>
+    <fullyQualifiedTypeName name="com.project02.Dao.Medicine_Category_Dao"/>
+    <fullyQualifiedTypeName name="com.project02.Models.Medicine_Category"/>
+</qualifiedTypeNameHistroy>
