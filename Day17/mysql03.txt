@@ -151,87 +151,82 @@ public class Medicine_Quantity {
 		this.medicine_id = medicine_id;
 	}
 }
-Now give me DAO for Above three similar to package com.employee.Dao;
 
-import java.sql.*;
-import java.util.*;
+INSERT INTO Medicine_Category (category_Id, Category_Name)
+VALUES 
+    (1, 'Antibiotics'),
+    (2, 'Analgesics'),
+    (3, 'Antipyretics'),
+    (4, 'Antihypertensives'),
+    (5, 'Anticoagulants'),
+    (6, 'Antidepressants'),
+    (7, 'Antacids'),
+    (8, 'Bronchodilators'),
+    (9, 'Antidiabetic drugs'),
+    (10, 'Antineoplastic agents');
 
-import com.employee.Models.Employee;
-import com.employee.Utility.DBUtil;
+DELIMITER //
 
-public class EmployeeDao {
-	
-	public void addEmployee(Employee employee)throws SQLException {
-		String sql = "INSERT INTO EMPLOYEE_DB (ROLL , NAME , DEPARTMENT , SALARY) VALUES (? , ? , ? , ?)";
-		try(Connection conn = DBUtil.getConnection();
-			PreparedStatement stmt = conn.prepareStatement(sql)){
-			stmt.setInt(1, employee.getRoll());			
-			stmt.setString(2, employee.getName());
-            stmt.setString(3, employee.getDepartment());
-            stmt.setDouble(4, employee.getSalary());
-            stmt.executeUpdate();
-		}
-	}
-	
-	public List<Employee> getAllEmployees() throws SQLException{
-		List<Employee> employees = new ArrayList<>();
-        String sql = "SELECT * FROM employee_db";
+CREATE TRIGGER increase_medicine_quantity
+AFTER INSERT ON medicine
+FOR EACH ROW
+BEGIN
+    DECLARE v_medicine_id INT;
+    SET v_medicine_id = NEW.medicine_id;
+    
+    -- Check if the medicine_id already exists in the medicine_quantity table
+    IF EXISTS (SELECT 1 FROM medicine_quantity WHERE medicine_id = v_medicine_id) THEN
+        -- If it exists, increase the quantity by 1
+        UPDATE medicine_quantity
+        SET medicine_quantity = medicine_quantity + 1
+        WHERE medicine_id = v_medicine_id;
+    ELSE
+        -- If it does not exist, insert a new record with quantity = 1
+        INSERT INTO medicine_quantity (medicine_id, medicine_quantity)
+        VALUES (v_medicine_id, 1);
+    END IF;
+END //
 
-        try (Connection conn = DBUtil.getConnection();
-        	Statement stmt = conn.createStatement();
-        	ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                Employee employee = new Employee();
-                employee.setRoll(rs.getInt("roll"));
-                employee.setName(rs.getString("name"));
-                employee.setDepartment(rs.getString("department"));
-                employee.setSalary(rs.getDouble("salary"));
-                employees.add(employee);
-            }
-	      }
-        return employees;
-    }
+DELIMITER ;
 
-	public Employee getEmployeeByRoll(int roll)  throws SQLException{
-		Employee employee = null;
-        String sql = "SELECT * FROM employee_db where roll=?";
 
-        try (Connection conn = DBUtil.getConnection();
-        	PreparedStatement stmt = conn.prepareStatement(sql)) {
-        	stmt.setInt(1, roll);
-        	ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                employee = new Employee();
-                employee.setRoll(rs.getInt("roll"));
-                employee.setName(rs.getString("name"));
-                employee.setDepartment(rs.getString("department"));
-                employee.setSalary(rs.getDouble("salary"));
-            }
-	      }
-        return employee;
-	}
-	
-	public void updateEmployee(Employee employee) throws SQLException {
-        String sql = "UPDATE employee_db SET name = ?, department = ?, salary = ? WHERE roll = ?";
-
-        try (Connection conn = DBUtil.getConnection(); 
-        	PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, employee.getName());
-            stmt.setString(2, employee.getDepartment());
-            stmt.setDouble(3, employee.getSalary());
-            stmt.setInt(4, employee.getRoll());
-            stmt.executeUpdate();
-        }
-    }
-	
-	
-    public void deleteEmployee(int roll) throws SQLException {
-        String sql = "DELETE FROM employee_db WHERE roll = ?";
-
-        try (Connection conn = DBUtil.getConnection(); 
-        	PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, roll);
-            stmt.executeUpdate();
-        }
-    }
-}
+ INSERT INTO medicine (Medicine_id, Medicine_Name, Medicine_category_id, medicine_Rating) VALUES
+    -> (12, 'Amoxicillin', 1, 5),
+    -> (2, 'Ibuprofen', 2, 4),
+    -> (3, 'Paracetamol', 3, 5),
+    -> (4, 'Lisinopril', 4, 4),
+    -> (5, 'Warfarin', 5, 3),
+    -> (6, 'Fluoxetine', 6, 4),
+    -> (7, 'Ranitidine', 7, 3),
+    -> (8, 'Albuterol', 8, 5),
+    -> (9, 'Metformin', 9, 5),
+    -> (10, 'Cisplatin', 10, 4),
+    -> (13, 'Aspirin', 2, 5),
+    -> (14, 'Acetaminophen', 2, 4),
+    -> (15, 'Naproxen', 2, 4),
+    -> (16, 'Ibuprofen', 3, 5),
+    -> (17, 'Dipyrone', 3, 4),
+    -> (18, 'Acetaminophen', 3, 5),
+    -> (19, 'Atenolol', 4, 4),
+    -> (20, 'Amlodipine', 4, 4),
+    -> (21, 'Losartan', 4, 5),
+    -> (22, 'Heparin', 5, 4),
+    -> (23, 'Dabigatran', 5, 3),
+    -> (24, 'Enoxaparin', 5, 4),
+    -> (25, 'Sertraline', 6, 5),
+    -> (26, 'Citalopram', 6, 4),
+    -> (27, 'Escitalopram', 6, 5),
+    -> (28, 'Omeprazole', 7, 4),
+    -> (29, 'Magnesium Hydroxide', 7, 3),
+    -> (30, 'Sodium Bicarbonate', 7, 4),
+    -> (31, 'Salmeterol', 8, 5),
+    -> (32, 'Ipratropium', 8, 4),
+    -> (33, 'Theophylline', 8, 3),
+    -> (34, 'Glibenclamide', 9, 4),
+    -> (35, 'Insulin Glargine', 9, 5),
+    -> (36, 'Pioglitazone', 9, 4),
+    -> (37, 'Doxorubicin', 10, 4),
+    -> (38, 'Methotrexate', 10, 5),
+    -> (39, 'Paclitaxel', 10, 4),
+    -> (41, 'Ceftriaxone', 1, 5),
+    -> (40, 'Levofloxacin', 1, 4);

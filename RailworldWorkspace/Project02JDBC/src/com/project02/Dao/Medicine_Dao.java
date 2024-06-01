@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.*;
 
 import com.project02.Models.Medicine;
+import com.project02.Models.MedicineDetails;
 import com.project02.Utility.DBUtil;
 
 public class Medicine_Dao {
@@ -100,5 +101,28 @@ public class Medicine_Dao {
             stmt.setInt(1, medicineId);
             stmt.executeUpdate();
         }
+    }
+    
+    public List<MedicineDetails> getMedicineDetails() throws SQLException {
+        List<MedicineDetails> medicineDetailsList = new ArrayList<>();
+        String sql = "SELECT m.Medicine_id, m.Medicine_Name, m.medicine_Rating, q.medicine_quantity, c.Category_Name " +
+                     "FROM medicine m " +
+                     "INNER JOIN medicine_category c ON c.category_Id = m.Medicine_category_id " +
+                     "INNER JOIN medicine_quantity q ON q.medicine_id = m.Medicine_id";
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                MedicineDetails details = new MedicineDetails();
+                details.setMedicineId(rs.getInt("Medicine_id"));
+                details.setMedicineName(rs.getString("Medicine_Name"));
+                details.setMedicineRating(rs.getInt("medicine_Rating"));
+                details.setMedicineQuantity(rs.getInt("medicine_quantity"));
+                details.setCategoryName(rs.getString("Category_Name"));
+                medicineDetailsList.add(details);
+            }
+        }
+        return medicineDetailsList;
     }
 }

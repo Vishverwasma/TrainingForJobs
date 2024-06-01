@@ -13,4 +13,5 @@
     <fullyQualifiedTypeName name="com.employee.Models.Employee"/>
     <fullyQualifiedTypeName name="com.project02.Dao.Medicine_Category_Dao"/>
     <fullyQualifiedTypeName name="com.project02.Models.Medicine_Category"/>
+    <fullyQualifiedTypeName name="com.project02.Models.MedicineDetails"/>
 </qualifiedTypeNameHistroy>

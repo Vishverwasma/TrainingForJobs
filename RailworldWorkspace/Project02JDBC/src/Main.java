@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.project02.Models.Medicine;
+import com.project02.Models.MedicineDetails;
 import com.project02.Models.Medicine_Category;
 import com.project02.Models.Medicine_Quantity;
 import com.project02.Dao.Medicine_Dao;
@@ -65,6 +66,9 @@ public class Main {
                         viewAllCategories();
                         break;
                     case 11:
+                        viewMedicineDetails();
+                        break;
+                    case 12:
                         System.out.println("Exiting...");
                         return;
                     default:
@@ -88,7 +92,8 @@ public class Main {
         System.out.println("8. Update Medicine Quantity");
         System.out.println("9. Delete Medicine Quantity");
         System.out.println("10. View All Categories");
-        System.out.println("11. Exit");
+        System.out.println("11. View Medicine Details");
+        System.out.println("12. Exit");
         System.out.print("Enter your choice: ");
     }
 
@@ -120,7 +125,7 @@ public class Main {
         List<Medicine_Category> categories = categoryDao.getAllCategories();
         System.out.println("\nMedicine Categories:");
         for (Medicine_Category category : categories) {
-            System.out.println("Category ID: " + category.getCategory_Id() + ", Category Name: " + category.getCategory_Name());
+            System.out.println(category.getCategory_Id() + " . " + category.getCategory_Name());
         }
     }
 
@@ -197,5 +202,16 @@ public class Main {
         int id = Integer.parseInt(scanner.nextLine());
         quantityDao.deleteMedicineQuantity(id);
         System.out.println("Medicine quantity deleted successfully!");
+    }
+
+    private void viewMedicineDetails() throws SQLException {
+        List<MedicineDetails> medicineDetailsList = medicineDao.getMedicineDetails();
+        System.out.println("\nMedicine Details List:");
+        System.out.println("Medicine ID - | - Name - | - Rating: - | - Quantity:   Category: " );
+        for (MedicineDetails details : medicineDetailsList) {
+            System.out.println( "---> " + details.getMedicineId() + "   ---   " + details.getMedicineName() +
+                    "   ---   " + details.getMedicineRating() + "   ---   " + details.getMedicineQuantity() +
+                    "   ---   " + details.getCategoryName());
+        }
     }
 }

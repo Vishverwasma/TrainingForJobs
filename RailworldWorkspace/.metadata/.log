@@ -1115,3 +1115,54 @@ Java Model Exception: Java Model Status [Unknown javadoc format for ID {key=Lcom
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
 !SUBENTRY 1 org.eclipse.jdt.core 4 1009 2024-05-27 16:44:56.387
 !MESSAGE Unknown javadoc format for ID {key=Lcom/sun/xml/internal/bind/v2/model/core/ID;} [in ID.class [in com.sun.xml.internal.bind.v2.model.core [in C:\Program Files\Java\jdk1.8.0_202\jre\lib\rt.jar]]]
+!SESSION 2024-05-29 14:59:18.871 -----------------------------------------------
+eclipse.buildId=4.14.0.I20191210-0610
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.testng.eclipse 4 0 2024-05-29 14:59:25.284
+!MESSAGE <enabledWhen> element is required. Disabling org.testng.eclipse.codemining.testngProvider
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-05-29 14:59:26.088
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\vishw'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-05-30 15:29:56.436 -----------------------------------------------
+eclipse.buildId=4.14.0.I20191210-0610
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.testng.eclipse 4 0 2024-05-30 15:30:02.606
+!MESSAGE <enabledWhen> element is required. Disabling org.testng.eclipse.codemining.testngProvider
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-05-30 15:30:03.303
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\vishw'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-05-31 16:16:51.678 -----------------------------------------------
+eclipse.buildId=4.14.0.I20191210-0610
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.testng.eclipse 4 0 2024-05-31 16:17:01.031
+!MESSAGE <enabledWhen> element is required. Disabling org.testng.eclipse.codemining.testngProvider
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-05-31 16:17:02.464
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\vishw'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
