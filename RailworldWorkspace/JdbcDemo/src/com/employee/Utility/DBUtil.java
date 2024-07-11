@@ -1,4 +1,4 @@
-package com.employee.Utility;
+package RailworldTraining.RailworldWorkspace.JdbcDemo.src.com.employee.Utility;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

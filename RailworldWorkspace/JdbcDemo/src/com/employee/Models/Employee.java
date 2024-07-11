@@ -1,4 +1,4 @@
-package com.employee.Models;
+package RailworldTraining.RailworldWorkspace.JdbcDemo.src.com.employee.Models;
 
 public class Employee {
 	private int roll;

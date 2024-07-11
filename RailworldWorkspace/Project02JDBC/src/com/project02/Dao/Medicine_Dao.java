@@ -108,7 +108,8 @@ public class Medicine_Dao {
         String sql = "SELECT m.Medicine_id, m.Medicine_Name, m.medicine_Rating, q.medicine_quantity, c.Category_Name " +
                      "FROM medicine m " +
                      "INNER JOIN medicine_category c ON c.category_Id = m.Medicine_category_id " +
-                     "INNER JOIN medicine_quantity q ON q.medicine_id = m.Medicine_id";
+                     "INNER JOIN medicine_quantity q ON q.medicine_id = m.Medicine_id "
+                     + "ORDER BY m.Medicine_id";
 
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
