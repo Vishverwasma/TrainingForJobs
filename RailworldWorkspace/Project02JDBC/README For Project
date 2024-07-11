@@ -1,0 +1,11 @@
+This is Basic Java JDBC Based Project Named as : Medicine Stock Management System .
+
+Medicine_Quantity: This class represents the quantity of a particular medicine.It has fields for quantity_id, medicine_id, and medicine_quantity.The medicine_id field is a foreign key referencing the Medicine table.
+
+Medicine_Category: This class represents a category for medicines.It has fields for category_Id and Category_Name.
+
+Medicine: This class represents a medicine.It has fields for Medicine_id, Medicine_Name, Medicine_category_id, and medicine_Rating.The Medicine_category_id field is a foreign key referencing the Medicine_Category table.
+
+MedicineDetails: This class seems to be a data transfer object (DTO) or a view model that combines information from different entities.It has fields for medicineId, medicineName, medicineRating, medicineQuantity, and categoryName.This class likely serves as a convenient way to transfer or represent medicine-related data across different layers of the application.The code also includes SQL statements for creating the corresponding database tables and defining foreign key relationships between them.
+
+Overall, these classes represent the data models for managing medicines, their categories, and quantities in a database-driven application.
