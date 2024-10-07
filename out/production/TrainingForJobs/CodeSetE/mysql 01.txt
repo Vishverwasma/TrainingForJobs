@@ -1,0 +1,100 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> use Railword1;
+
+mysql> create table EMPLOYEE(
+    -> ID INT PRIMARY KEY,
+    -> NAME VARCHAR(50),
+    -> ADDRESSINFO INT);
+
+mysql> INSERT INTO EMPLOYEE(ID,NAME,ADDRESSINFO) VALUES (1,"VISHWAS VERMA",1
+);
+
+mysql> DESC EMPLOYEE;
+
+mysql> CREATE TABLE EMP_ADDRESS(ADDRESS_ID INT PRIMARY KEY,
+    -> CITY VARCHAR(50) NOT NULL,
+    -> STATE VARCHAR(25) NOT NULL);
+
+mysql> DELETE * FROM EMPLOYEE;
+
+mysql> ALTER TABLE EMPLOYEE ADD FOREIGN KEY (ADDRESSINFO) REFERENCES EMP_ADDRESS(ADDRESS_ID);
+
+INSERT INTO emp_address (ADDRESS_ID, CITY, STATE) VALUES
+(1, 'DURG', 'C.G.'),
+(2, 'BHILAI', 'C.G.'),
+(3, 'RAIPUR', 'C.G.'),
+(4, 'BILASPUR', 'C.G.'),
+(5, 'RAIGARH', 'C.G.'),
+(6, 'KORBA', 'C.G.'),
+(7, 'JAGDALPUR', 'C.G.'),
+(8, 'AMBIKAPUR', 'C.G.'),
+(9, 'DANTEWADA', 'C.G.'),
+(10, 'KANKER', 'C.G.'),
+(11, 'MAHASAMUND', 'C.G.'),
+(12, 'JASHPUR', 'C.G.'),
+(13, 'KAWARDHA', 'C.G.'),
+(14, 'BALODABAZAR', 'C.G.'),
+(15, 'BIJAPUR', 'C.G.'),
+(16, 'BASTAR', 'C.G.'),
+(17, 'BALRAMPUR', 'C.G.'),
+(18, 'GARIABAND', 'C.G.'),
+(19, 'MUNGELI', 'C.G.'),
+(20, 'SURAJPUR', 'C.G.'),
+(21, 'BALOD', 'C.G.'),
+(22, 'BEMETARA', 'C.G.'),
+(23, 'DHAMTARI', 'C.G.'),
+(24, 'DURG-BHILAI', 'C.G.'),
+(25, 'KONDAGAON', 'C.G.'),
+(26, 'NARAYANPUR', 'C.G.'),
+(27, 'SUKMA', 'C.G.'),
+(28, 'GAURELA-PENDRA-MARWAHI', 'C.G.'),
+(29, 'KHARSIA', 'C.G.'),
+(30, 'TILDA-NEORA', 'C.G.'),
+(31, 'BAGBAHARA', 'C.G.'),
+(32, 'SARAGAON', 'C.G.'),
+(33, 'CHARODA', 'C.G.'),
+(34, 'KONDAGAON', 'C.G.'),
+(35, 'PANDARIA', 'C.G.'),
+(36, 'SANKRA', 'C.G.'),
+(37, 'DHAMTARI', 'C.G.'),
+(38, 'RATANPUR', 'C.G.'),
+(39, 'MANENDRAGARH', 'C.G.'),
+(40, 'JAMGAON', 'C.G.'),
+(41, 'NANDINI', 'C.G.'),
+(42, 'SINDHAUR', 'C.G.'),
+(43, 'CHARAMA', 'C.G.'),
+(44, 'BHATAPARA', 'C.G.'),
+(45, 'RAJNANDGAON', 'C.G.'),
+(46, 'KUMHARI', 'C.G.'),
+(47, 'ARANG', 'C.G.'),
+(48, 'SIMGA', 'C.G.'),
+(49, 'CHAMPA', 'C.G.'),
+(50, 'RAJNANDGAON', 'C.G.');
+
+mysql> INSERT INTO EMPLOYEE(ID,NAME,ADDRESSINFO) VALUES (1,"VISHWAS VERMA",1);
+
+mysql> SELECT * FROM EMPLOYEE;
++----+---------------+-------------+
+| ID | NAME          | ADDRESSINFO |
++----+---------------+-------------+
+|  1 | VISHWAS VERMA |           1 |
++----+---------------+-------------+
+1 rows in set (0.00 sec)
+
+mysql> SELECT E.ID , E.NAME , A.CITY , A.STATE FROM EMPLOYEE AS E INNER JOIN EMP_ADDRESS AS A WHERE ADDRESSINFO=ADDRESS_ID;
++----+---------------+------+-------+
+| ID | NAME          | CITY | STATE |
++----+---------------+------+-------+
+|  1 | VISHWAS VERMA | DURG | C.G.  |
++----+---------------+------+-------+
+1 rows in set (0.00 sec)

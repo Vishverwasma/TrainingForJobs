@@ -1,0 +1,232 @@
+mysql03
+mysql> create table Medicine(Medicine_id int primary key,
+    -> Medicine_Name varchar(50),
+    -> Medicine_category_id int,
+    -> medicine_Rating int);
+mysql> create table Medicine_Category(
+    -> category_Id int primary key,
+    -> Category_Name varchar(50)
+    -> );
+mysql> create table Medicine_Quantity(
+    -> quantity_id int primary key,
+    -> medicine_id int unique,
+    -> medicine_quantity int);
+mysql> ALTER TABLE Medicine_Quantity ADD FOREIGN KEY(medicine_id) REFERENCES MEDICINE(Medicine_id);
+mysql> ALTER TABLE MEDICINE ADD FOREIGN KEY(Medicine_category_id) REFERENCES
+ MEDICINE_CATEGORY(CATEGORY_ID);
+and Models are package com.project02.Models;
+
+
+//mysql> create table Medicine(Medicine_id int primary key,
+//	    -> Medicine_Name varchar(50),
+//	    -> Medicine_category_id int,
+//	    -> medicine_Rating int);
+//	Query OK, 0 rows affected (0.05 sec)
+	
+//mysql> ALTER TABLE MEDICINE ADD FOREIGN KEY(Medicine_category_id) REFERENCES
+//MEDICINE_CATEGORY(CATEGORY_ID);
+//Query OK, 0 rows affected (0.05 sec)
+//Records: 0  Duplicates: 0  Warnings: 0
+	
+public class Medicine {
+	private int Medicine_id;
+	private String Medicine_Name;
+	private int Medicine_category_id;
+	private int medicine_Rating;
+	
+	public Medicine() {
+		super();
+	}
+	public Medicine(int medicine_id, String medicine_Name, int medicine_category_id, int medicine_Rating) {
+		super();
+		Medicine_id = medicine_id;
+		Medicine_Name = medicine_Name;
+		Medicine_category_id = medicine_category_id;
+		this.medicine_Rating = medicine_Rating;
+	}
+	public int getMedicine_id() {
+		return Medicine_id;
+	}
+	public void setMedicine_id(int medicine_id) {
+		Medicine_id = medicine_id;
+	}
+	public String getMedicine_Name() {
+		return Medicine_Name;
+	}
+	public void setMedicine_Name(String medicine_Name) {
+		Medicine_Name = medicine_Name;
+	}
+	public int getMedicine_category_id() {
+		return Medicine_category_id;
+	}
+	public void setMedicine_category_id(int medicine_category_id) {
+		Medicine_category_id = medicine_category_id;
+	}
+	public int getMedicine_Rating() {
+		return medicine_Rating;
+	}
+	public void setMedicine_Rating(int medicine_Rating) {
+		this.medicine_Rating = medicine_Rating;
+	}
+	
+}
+package com.project02.Models;
+
+
+//mysql> create table Medicine_Category(
+//	    -> category_Id int primary key,
+//	    -> Category_Name varchar(50)
+//	    -> );
+//	Query OK, 0 rows affected (0.02 sec)
+
+public class Medicine_Category {
+	private int category_Id;
+	private String Category_Name;
+	public Medicine_Category() {
+		super();
+	}
+	public Medicine_Category(int category_Id, String category_Name) {
+		super();
+		this.category_Id = category_Id;
+		Category_Name = category_Name;
+	}
+	public int getCategory_Id() {
+		return category_Id;
+	}
+	public void setCategory_Id(int category_Id) {
+		this.category_Id = category_Id;
+	}
+	public String getCategory_Name() {
+		return Category_Name;
+	}
+	public void setCategory_Name(String category_Name) {
+		Category_Name = category_Name;
+	}
+	
+}
+package com.project02.Models;
+
+
+//mysql> create table Medicine_Quantity(
+//	    -> quantity_id int primary key,
+//	    -> medicine_id int ,
+//	    -> medicine_quantity int);
+//	Query OK, 0 rows affected (0.02 sec)
+	
+//mysql> ALTER TABLE Medicine_Quantity ADD FOREIGN KEY(medicine_id) REFERENCES
+//MEDICINE(Medicine_id);
+//Query OK, 0 rows affected (0.04 sec)
+//Records: 0  Duplicates: 0  Warnings: 0
+
+public class Medicine_Quantity {
+	private int quantity_id;
+	private int medicine_id;
+	private double medicine_quantity;
+	
+	public Medicine_Quantity() {
+		super();
+	}
+	public Medicine_Quantity(int quantity_id, int medicine_id, double medicine_quantity) {
+		super();
+		this.quantity_id = quantity_id;
+		this.medicine_id = medicine_id;
+		this.medicine_quantity = medicine_quantity;
+	}
+	public int getQuantity_id() {
+		return quantity_id;
+	}
+	public void setQuantity_id(int quantity_id) {
+		this.quantity_id = quantity_id;
+	}
+	public double getMedicine_quantity() {
+		return medicine_quantity;
+	}
+	public void setMedicine_quantity(double medicine_quantity) {
+		this.medicine_quantity = medicine_quantity;
+	}
+	public int getMedicine_id() {
+		return medicine_id;
+	}
+	public void setMedicine_id(int medicine_id) {
+		this.medicine_id = medicine_id;
+	}
+}
+
+INSERT INTO Medicine_Category (category_Id, Category_Name)
+VALUES 
+    (1, 'Antibiotics'),
+    (2, 'Analgesics'),
+    (3, 'Antipyretics'),
+    (4, 'Antihypertensives'),
+    (5, 'Anticoagulants'),
+    (6, 'Antidepressants'),
+    (7, 'Antacids'),
+    (8, 'Bronchodilators'),
+    (9, 'Antidiabetic drugs'),
+    (10, 'Antineoplastic agents');
+
+DELIMITER //
+
+CREATE TRIGGER increase_medicine_quantity
+AFTER INSERT ON medicine
+FOR EACH ROW
+BEGIN
+    DECLARE v_medicine_id INT;
+    SET v_medicine_id = NEW.medicine_id;
+    
+    -- Check if the medicine_id already exists in the medicine_quantity table
+    IF EXISTS (SELECT 1 FROM medicine_quantity WHERE medicine_id = v_medicine_id) THEN
+        -- If it exists, increase the quantity by 1
+        UPDATE medicine_quantity
+        SET medicine_quantity = medicine_quantity + 1
+        WHERE medicine_id = v_medicine_id;
+    ELSE
+        -- If it does not exist, insert a new record with quantity = 1
+        INSERT INTO medicine_quantity (medicine_id, medicine_quantity)
+        VALUES (v_medicine_id, 1);
+    END IF;
+END //
+
+DELIMITER ;
+
+
+ INSERT INTO medicine (Medicine_id, Medicine_Name, Medicine_category_id, medicine_Rating) VALUES
+    -> (12, 'Amoxicillin', 1, 5),
+    -> (2, 'Ibuprofen', 2, 4),
+    -> (3, 'Paracetamol', 3, 5),
+    -> (4, 'Lisinopril', 4, 4),
+    -> (5, 'Warfarin', 5, 3),
+    -> (6, 'Fluoxetine', 6, 4),
+    -> (7, 'Ranitidine', 7, 3),
+    -> (8, 'Albuterol', 8, 5),
+    -> (9, 'Metformin', 9, 5),
+    -> (10, 'Cisplatin', 10, 4),
+    -> (13, 'Aspirin', 2, 5),
+    -> (14, 'Acetaminophen', 2, 4),
+    -> (15, 'Naproxen', 2, 4),
+    -> (16, 'Ibuprofen', 3, 5),
+    -> (17, 'Dipyrone', 3, 4),
+    -> (18, 'Acetaminophen', 3, 5),
+    -> (19, 'Atenolol', 4, 4),
+    -> (20, 'Amlodipine', 4, 4),
+    -> (21, 'Losartan', 4, 5),
+    -> (22, 'Heparin', 5, 4),
+    -> (23, 'Dabigatran', 5, 3),
+    -> (24, 'Enoxaparin', 5, 4),
+    -> (25, 'Sertraline', 6, 5),
+    -> (26, 'Citalopram', 6, 4),
+    -> (27, 'Escitalopram', 6, 5),
+    -> (28, 'Omeprazole', 7, 4),
+    -> (29, 'Magnesium Hydroxide', 7, 3),
+    -> (30, 'Sodium Bicarbonate', 7, 4),
+    -> (31, 'Salmeterol', 8, 5),
+    -> (32, 'Ipratropium', 8, 4),
+    -> (33, 'Theophylline', 8, 3),
+    -> (34, 'Glibenclamide', 9, 4),
+    -> (35, 'Insulin Glargine', 9, 5),
+    -> (36, 'Pioglitazone', 9, 4),
+    -> (37, 'Doxorubicin', 10, 4),
+    -> (38, 'Methotrexate', 10, 5),
+    -> (39, 'Paclitaxel', 10, 4),
+    -> (41, 'Ceftriaxone', 1, 5),
+    -> (40, 'Levofloxacin', 1, 4);
