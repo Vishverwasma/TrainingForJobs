@@ -2,23 +2,27 @@ package CodeSetE;
 
 import java.util.Scanner;
 
-public class ReversingLinkedList {
-   public static linkedListNode reverse(linkedListNode head){
-       if(head == null || head.next == null){
-           return head;
-       }
-       linkedListNode revHead = reverse(head.next);
-       head.next.next = head;
-       head.next = null;
-       return revHead;
-   }
-   public static void printList(linkedListNode curr){
-       while(curr != null){
-           System.out.print(curr.data + " ");
-           curr = curr.next;
-       }
-       System.out.println();
-   }
+public class MiddleNode {
+    public static linkedListNode middleNode(linkedListNode head){
+        if(head == null){
+            return null;
+        }
+        linkedListNode slow = head;
+        linkedListNode fast = head;
+
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    public static void printList(linkedListNode curr){
+        while(curr != null){
+            System.out.print(curr.data + " ");
+            curr = curr.next;
+        }
+        System.out.println();
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -46,10 +50,15 @@ public class ReversingLinkedList {
         System.out.println("Orignal Linked List : ");
         printList(head);
 
-        head = reverse(head);
-        System.out.println("Reversed Linked List : ");
-        printList(head);
+        linkedListNode middle = middleNode(head);
+        System.out.println("Middle Node of this Linked List : ");
+        if(middle!=null){
+            System.out.println(middle);
+        }else{
+            System.out.println("This is an Empty Linked List !");
+        }
 
         sc.close();
     }
 }
+
