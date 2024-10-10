@@ -1,6 +1,4 @@
-package Railworld.Day02;
-
-import jdk.jshell.Snippet;
+package CodeSetA;
 
 import java.util.Scanner;
 

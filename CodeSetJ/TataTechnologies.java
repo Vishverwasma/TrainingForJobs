@@ -1,4 +1,4 @@
-package TelegramProjects;
+package CodeSetJ;
 import java.util.*;
 public class TataTechnologies {
     public class Main {
