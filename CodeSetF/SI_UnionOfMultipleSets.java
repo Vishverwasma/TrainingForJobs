@@ -1,5 +1,6 @@
-package RailworldTraining.Day16;
+package CodeSetF;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,11 +22,11 @@ public class SI_UnionOfMultipleSets {
     }
 
     public static void main(String[] args) {
-        Set<Integer> set1 = Set.of(1, 2, 3);
-        Set<Integer> set2 = Set.of(2, 3, 4);
-        Set<Integer> set3 = Set.of(3, 4, 5);
+        Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 2, 3));
+        Set<Integer> set2 = new HashSet<>(Arrays.asList(2, 3, 4));
+        Set<Integer> set3 = new HashSet<>(Arrays.asList(3, 4, 5));
 
-        List<Set<Integer>> sets = List.of(set1, set2, set3);
+        List<Set<Integer>> sets = Arrays.asList(set1, set2, set3);
 
         Set<Integer> union = unionOfSets(sets);
         System.out.println("Union of sets: " + union);

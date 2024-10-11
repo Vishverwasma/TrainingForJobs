@@ -1,4 +1,4 @@
-package RailworldTraining.Day16;
+package CodeSetF;
 //5. *Check Subset Relationship*
 //        - *Description*: Write a function that checks if one set is a subset of another set.
 
@@ -17,9 +17,9 @@ import java.util.*;
 
         public static void main(String[] args) {
             // Example sets
-            Set<Integer> set1 = Set.of(1, 2, 3);
-            Set<Integer> set2 = Set.of(1, 2, 3, 4, 5);
-            Set<Integer> set3 = Set.of(3, 4, 5);
+            Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 2, 3));
+            Set<Integer> set2 = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
+            Set<Integer> set3 = new HashSet<>(Arrays.asList(3, 4, 5));
 
             // Test cases
             System.out.println("Is set1 a subset of set2? " + isSubset(set1, set2)); // true
