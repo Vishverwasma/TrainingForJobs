@@ -88,8 +88,33 @@ public class Sorting {
             j++;
         }
     }
-    public static void quickSort(int[]arr){}
-    public static void backTrackingSort(int[]arr){
+    public static void quickSort(int[]arr,int low,int high){
+        if(low<high){
+            int pivotIndex = partitionForQuickSort(arr , low , high);
+            quickSort(arr,low,pivotIndex-1);
+            quickSort(arr,pivotIndex+1,high);
+        }
+    }
+    public static int partitionForQuickSort(int[]arr,int low,int high){
+        int pivotValue = arr[high];
+        int i = low-1;
+        for(int j = low ; j < high ; j++){
+            if(arr[j]<pivotValue){
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        i++;
+        int temp = arr[i];
+        arr[i] = pivotValue;
+        arr[high] = temp;
+        return i;
+    }
+    public static void backTrackingSort(int[]arr){{
+
+    }
 
     }
     public static void main(String[] args){
@@ -127,7 +152,7 @@ public class Sorting {
                 break;
             case 5:
                 System.out.println("\nOn Sorting using Quick Sort it becomes : ");
-                quickSort(arr);
+                quickSort(arr , 0 , arr.length-1);
                 obj.showArray(arr);
                 break;
             case 6:
@@ -136,7 +161,7 @@ public class Sorting {
                 obj.showArray(arr);
                 break;
             default:
-                System.out.println("Seems you didnt choose among choice so going with Bubble Sort!\nOn Sorting using Bubble Sort it becomes : ");
+                System.out.println("Seems you didn't choose among choice so going with Bubble Sort!\nOn Sorting using Bubble Sort it becomes : ");
                 bubbleSort(arr);
                 obj.showArray(arr);
                 break;
